@@ -1,0 +1,58 @@
+@use '../util' as *;
+
+.card2 {
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: rem(25);
+  border-radius: rem(5);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: rem(28);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--card-hover);
+  }
+
+  &__one {
+    font-weight: 700;
+    font-size: rem(12);
+
+    @include breakpoint(medium) {
+      font-size: rem(15);
+    }
+  }
+
+  &__two {
+    justify-self: right;
+  }
+
+  &__three {
+    font-size: rem(26);
+    font-weight: 700;
+    color: var(--text-color2);
+    align-self: end;
+  }
+
+  &__four {
+    align-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    div {
+      font-size: rem(12);
+      font-weight: 700;
+      margin-left: rem(4);
+    }
+
+    &--up {
+      color: var(--limegreen);
+    }
+
+    &--down {
+      color: var(--bright-red);
+    }
+  }
+}

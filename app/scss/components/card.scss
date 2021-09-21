@@ -1,0 +1,126 @@
+@use '../util' as *;
+
+.cards {
+  // also used in ct
+  display: grid;
+  gap: rem(30);
+  grid-template-columns: 1fr;
+
+  @include breakpoint(medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint(large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  text-align: center;
+  padding: rem(25);
+  border-radius: rem(5);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--card-hover);
+  }
+
+  &::before {
+    content: "";
+    height: rem(5);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0%;
+  }
+
+  &--facebook {
+    &::before {
+      background: var(--facebook);
+    }
+  }
+  &--twitter {
+    &::before {
+      background: var(--twitter);
+    }
+  }
+  &--instagram {
+    &::before {
+      background: linear-gradient(
+        225deg,
+        var(--instagram-start),
+        var(--instagram-middle) 50.91%,
+        var(--instagram-end) 100%
+      );
+    }
+  }
+  &--youtube {
+    &::before {
+      background: var(--youtube);
+    }
+  }
+
+  &__platform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: rem(28);
+  }
+
+  &__icon {
+    margin-right: rem(8);
+  }
+
+  &__username {
+    font-size: rem(12);
+    font-weight: 700;
+  }
+
+  &__followers {
+    margin-bottom: rem(25);
+  }
+
+  &__count {
+    color: var(--text-color2);
+    font-weight: 700;
+    letter-spacing: rem(-2);
+    line-height: 1;
+    margin-bottom: rem(4);
+
+    &--big {
+      font-size: rem(58);
+    }
+  }
+
+  &__lable {
+    color: var(--dark-text1);
+    font-size: rem(12);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: rem(5);
+  }
+
+  &__change {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: rem(12);
+    font-weight: 700;
+
+    &--up {
+      color: var(--limegreen);
+    }
+    &--down {
+      color: var(--bright-red);
+    }
+  }
+
+  &__num {
+    margin-left: rem(4);
+  }
+}
